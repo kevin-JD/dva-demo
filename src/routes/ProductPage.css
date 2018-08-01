@@ -1,9 +1,11 @@
 .wrapper{
   padding: 5px;
-  width: 134px;
   text-align: center;
 }
 .title{
   font-size: 16px;
   color: #333;
+}
+.p-wrapper{
+  margin-bottom: 10px;
 }
