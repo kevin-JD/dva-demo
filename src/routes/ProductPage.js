@@ -6,7 +6,8 @@ import styles from './ProductPage.css';
 import { increment, asyncDecr } from '../actions';
 
 class ProductPage extends Component {
-  constructor() {
+  constructor(props, context) {
+    console.log(props);
     super();
   }
   render() {
