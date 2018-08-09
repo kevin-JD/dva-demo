@@ -4,6 +4,7 @@ import propTypes from 'prop-types';
 import { Button } from 'antd';
 import styles from './ProductPage.css';
 import { increment, asyncDecr } from '../actions';
+import axios from 'axios';
 
 class ProductPage extends Component {
   constructor(props, context) {
@@ -23,6 +24,9 @@ class ProductPage extends Component {
           <p className={styles['p-wrapper']}>
             <Button type="primary" onClick={()=>increment()}>increment</Button>&nbsp;&nbsp;
             <Button type="primary" onClick={()=>asyncDecr()}>asyncDecr</Button>
+          </p>
+          <p className={styles['p-wrapper']}>
+            <Button type="primary" onClick={()=>axios('/api')}>getData</Button>
           </p>
           <Button type="primary">decr</Button>
         </div>

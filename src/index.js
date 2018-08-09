@@ -1,5 +1,6 @@
 import dva from 'dva';
 import { createBrowserHistory as browserHistory } from 'history';
+import createLoading from 'dva-loading';
 import 'antd/dist/antd.css';
 import './index.css';
 
@@ -22,15 +23,16 @@ const error = store => next => action => {
 // const app = dva();
 const app = dva({
   history: browserHistory(),
-  onAction: [logger, error]
+  // onAction: [logger, error]
 });
 
 // 2. Plugins
 // app.use({});
+app.use(createLoading());
 
 // 3. Model
 // app.model(require('./models/example').default);
-// app.model(require('./models/producs').default);t
+// app.model(require('./models/producs').default);
 require('./models').default.forEach(key => {
   app.model(key.default);
 });
