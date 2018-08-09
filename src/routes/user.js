@@ -10,7 +10,10 @@ class UserPage extends Component {
   render() {
     console.log(this.props);
     const { dispatch, asyncUser } = this.props;
-    const { isFetching, error, user } = this.props.user;
+    // const { isFetching, error, user } = this.props.user;
+    const { error, user } = this.props.user; // isFetching 移到dva-loading处理
+    let isFetching = this.props.loading.effects['user/fetch'];
+
     let data;
     if(error) {
       data = error;
@@ -31,7 +34,8 @@ class UserPage extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    user: state.user
+    user: state.user,
+    loading: state.loading,
   }
 }
 
